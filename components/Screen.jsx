@@ -18,9 +18,9 @@ font-size: 50px;
 margin: 0px;
 `
 
-function Screen ({currentTotal}) {
+function Screen ({currentAmount, displayTotal, currentTotal}) {
     return <Background>
-        <CalculatorText>{currentTotal}</CalculatorText>
+        <CalculatorText>{displayTotal ? currentTotal : currentAmount}</CalculatorText>
     </Background>
 }
 

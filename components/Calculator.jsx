@@ -25,7 +25,10 @@ const StyledDiv = styled.div`
 `;
 
 function Calculator() {
+  const [displayTotal, setDisplayTotal] = useState(false);
   const [currentTotal, setCurrentTotal] = useState(0);
+  const [currentAmount, setCurrentAmount] = useState(0);
+  const [currentOperator, setCurrentOperator] = useState("");
   return (
     <StyledDiv>
       <div style={{ gridArea: "logo" }}>
@@ -35,10 +38,10 @@ function Calculator() {
         <SolarPanel />
       </div>
       <div style={{ gridArea: "screen" }}>
-        <Screen currentTotal={currentTotal} />
+        <Screen displayTotal={displayTotal} currentAmount={currentAmount} currentTotal={currentTotal}/>
       </div>
       <div style={{ gridArea: "keypad" }}>
-        <Keypad />
+        <Keypad setDisplayTotal={setDisplayTotal} setCurrentAmount={setCurrentAmount} currentAmount={currentAmount} setCurrentTotal={setCurrentTotal} currentTotal={currentTotal} setCurrentOperator={setCurrentOperator} currentOperator={currentOperator}/>
       </div>
     </StyledDiv>
   );
