@@ -22,7 +22,41 @@ const CasioButton = styled.button`
   color: white;
 `;
 
-function Keypad() {
+function Keypad({setDisplayTotal, setCurrentAmount, currentAmount, setCurrentTotal, currentTotal, setCurrentOperator, currentOperator}) {
+
+  const clickNumber = (event) => {
+    setDisplayTotal(false)
+    const number = event.target.innerText;
+    setCurrentAmount((currentAmount) => {
+      if (currentAmount === 0) {
+        return number
+      } else {
+        return currentAmount + number
+      }
+    })
+  }
+
+  const clickOperatorFunction = (event) => {
+    setDisplayTotal(true)
+    const operator = event.target.innerText
+    console.log(operator)
+    if (operator === "+") {
+      setCurrentTotal((currentTotal) => {
+        return Number(currentTotal) + Number(currentAmount)
+    })
+    }
+    setCurrentAmount(0)
+    setCurrentOperator(operator)
+  }
+
+  const clickEqualsFunction = () => {
+    setDisplayTotal(true);
+    if (currentOperator === "+") {
+      setCurrentTotal(currentTotal + Number(currentAmount));
+    }
+    setCurrentAmount(0)
+  }
+
   return (
     <KeypadContainer>
       <div style={{ gridArea: "model-no", marginLeft: "calc(100% / 6)" }}>
@@ -36,28 +70,28 @@ function Keypad() {
       <CasioButton style={{ gridArea: "Mplus" }}>M+</CasioButton>
       <CasioButton style={{ gridArea: "divide" }}>÷</CasioButton>
       <CasioButton style={{ gridArea: "percent" }}>%</CasioButton>
-      <CasioButton style={{ gridArea: "seven" }}>7</CasioButton>
-      <CasioButton style={{ gridArea: "eight" }}>8</CasioButton>
-      <CasioButton style={{ gridArea: "nine" }}>9</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "seven" }}>7</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "eight" }}>8</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "nine" }}>9</CasioButton>
       <CasioButton style={{ gridArea: "multiply" }}>X</CasioButton>
       <CasioButton style={{ gridArea: "negate" }}>+/-</CasioButton>
-      <CasioButton style={{ gridArea: "four" }}>4</CasioButton>
-      <CasioButton style={{ gridArea: "five" }}>5</CasioButton>
-      <CasioButton style={{ gridArea: "six" }}>6</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "four" }}>4</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "five" }}>5</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "six" }}>6</CasioButton>
       <CasioButton style={{ gridArea: "minus" }}>-</CasioButton>
       <CasioButton style={{ gridArea: "clear", background: "#9e3147" }}>
         C
       </CasioButton>
-      <CasioButton style={{ gridArea: "one" }}>1</CasioButton>
-      <CasioButton style={{ gridArea: "two" }}>2</CasioButton>
-      <CasioButton style={{ gridArea: "three" }}>3</CasioButton>
+      <CasioButton onClick={clickNumber}style={{ gridArea: "one" }}>1</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "two" }}>2</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "three" }}>3</CasioButton>
       <CasioButton style={{ gridArea: "allclear", background: "#9e3147" }}>
         AC
       </CasioButton>
-      <CasioButton style={{ gridArea: "zero" }}>0</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "zero" }}>0</CasioButton>
       <CasioButton style={{ gridArea: "dot" }}>.</CasioButton>
-      <CasioButton style={{ gridArea: "equals" }}>=</CasioButton>
-      <CasioButton style={{ gridArea: "add" }}>+</CasioButton>
+      <CasioButton onClick={clickEqualsFunction}style={{ gridArea: "equals" }}>=</CasioButton>
+      <CasioButton onClick={clickOperatorFunction} style={{ gridArea: "add" }}>+</CasioButton>
     </KeypadContainer>
   );
 }
