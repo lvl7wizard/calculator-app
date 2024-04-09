@@ -104,6 +104,17 @@ function Keypad({
     calculateExpression("square");
   };
 
+  // This currently clears the last inputted digit
+  // Need to research whether it should clear all digits from currentAmount in one go
+  // Also whether it can clear the currentTotal if currentAmount is 0
+  const clearLast = () => {
+    if (currentAmount.length > 1) {
+      setCurrentAmount(currentAmount.slice(0,-1))
+    } else {
+      setCurrentAmount(0);
+    }
+  }
+
   const clickAllClearFunction = () => {
     setCurrentAmount(0);
     setCurrentTotal(0);
@@ -164,7 +175,7 @@ function Keypad({
       >
         -
       </CasioButton>
-      <CasioButton style={{ gridArea: "clear", background: "#9e3147" }}>
+      <CasioButton onClick={clearLast} style={{ gridArea: "clear", background: "#9e3147" }}>
         C
       </CasioButton>
       <CasioButton onClick={clickNumber} style={{ gridArea: "one" }}>
