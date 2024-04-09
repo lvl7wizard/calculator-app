@@ -30,20 +30,41 @@ function Calculator() {
   const [currentAmount, setCurrentAmount] = useState(0);
   const [currentOperator, setCurrentOperator] = useState("");
   return (
-    <StyledDiv>
-      <div style={{ gridArea: "logo" }}>
-        <Logo />
+    <>
+      <StyledDiv>
+        <div style={{ gridArea: "logo" }}>
+          <Logo />
+        </div>
+        <div style={{ gridArea: "solar-panel" }}>
+          <SolarPanel />
+        </div>
+        <div style={{ gridArea: "screen" }}>
+          <Screen
+            displayTotal={displayTotal}
+            currentAmount={currentAmount}
+            currentTotal={currentTotal}
+          />
+        </div>
+        <div style={{ gridArea: "keypad" }}>
+          <Keypad
+            setDisplayTotal={setDisplayTotal}
+            setCurrentAmount={setCurrentAmount}
+            currentAmount={currentAmount}
+            setCurrentTotal={setCurrentTotal}
+            currentTotal={currentTotal}
+            setCurrentOperator={setCurrentOperator}
+            currentOperator={currentOperator}
+          />
+        </div>
+      </StyledDiv>
+      <div>
+      <h3>Troubleshooting: </h3>
+      <p>currentTotal: {currentTotal}</p>
+      <p>currentAmount: {currentAmount}</p>
+      <p>currentOperator: {currentOperator}</p>
+      <p>displayTotal: {displayTotal ? "true" : "false"}</p>
       </div>
-      <div style={{ gridArea: "solar-panel" }}>
-        <SolarPanel />
-      </div>
-      <div style={{ gridArea: "screen" }}>
-        <Screen displayTotal={displayTotal} currentAmount={currentAmount} currentTotal={currentTotal}/>
-      </div>
-      <div style={{ gridArea: "keypad" }}>
-        <Keypad setDisplayTotal={setDisplayTotal} setCurrentAmount={setCurrentAmount} currentAmount={currentAmount} setCurrentTotal={setCurrentTotal} currentTotal={currentTotal} setCurrentOperator={setCurrentOperator} currentOperator={currentOperator}/>
-      </div>
-    </StyledDiv>
+    </>
   );
 }
 
