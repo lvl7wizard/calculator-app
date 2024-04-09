@@ -28,13 +28,12 @@ function Keypad({
   currentAmount,
   setCurrentTotal,
   currentTotal,
-  setCurrentOperator,
-  currentOperator,
+  setPreviousOperator,
+  previousOperator,
 }) {
   const clickNumber = (event) => {
-    if (currentOperator === "=") {
+    if (previousOperator === "equals") {
       setCurrentTotal(0);
-      setCurrentOperator("");
     }
     setDisplayTotal(false);
     const number = event.target.innerText;
@@ -47,90 +46,68 @@ function Keypad({
     });
   };
 
-  const clickOperatorFunction = (event) => {
-    setDisplayTotal(true);
-    let operator = event.target.innerText;
-    console.log(operator);
-    if (currentOperator === "") {
-      setCurrentTotal(Number(currentAmount));
-    }
-    if (currentOperator === "+") {
-      setCurrentTotal((currentTotal) => {
-        return Number(currentTotal) + Number(currentAmount);
-      });
-    }
-    if (currentOperator === "-") {
-      if (currentTotal === 0) {
-        setCurrentTotal(currentAmount);
-      } else {
-        setCurrentTotal((currentTotal) => {
-          return Number(currentTotal) - Number(currentAmount);
-        });
-      }
-    }
-    if (currentOperator === "X") {
-      setCurrentTotal(currentTotal * Number(currentAmount));
-    }
-    if (currentOperator === "÷") {
-      setCurrentTotal(currentTotal / Number(currentAmount));
-    }
-    setCurrentAmount(0);
-    setCurrentOperator(operator);
-  };
-
   const clickEqualsFunction = () => {
     setDisplayTotal(true);
-    if (currentOperator === "" && currentAmount !== 0) {
+    if (previousOperator === "equals" && currentAmount !== 0) {
       setCurrentTotal(Number(currentAmount));
     }
-    if (currentOperator === "+") {
+    if (previousOperator === "add") {
       setCurrentTotal(currentTotal + Number(currentAmount));
     }
-    if (currentOperator === "-") {
+    if (previousOperator === "minus") {
       setCurrentTotal(currentTotal - Number(currentAmount));
     }
-    if (currentOperator === "X") {
+    if (previousOperator === "multiply") {
       setCurrentTotal(currentTotal * Number(currentAmount));
     }
-    if (currentOperator === "÷") {
+    if (previousOperator === "divide") {
       setCurrentTotal(currentTotal / Number(currentAmount));
     }
-    if (currentOperator === "√") {
+    if (previousOperator === "square") {
       setCurrentTotal(Math.sqrt(currentTotal));
     }
     setCurrentAmount(0);
-    setCurrentOperator("=");
+    setPreviousOperator("equals");
   };
 
-  const calculateExpression = (operator = "") => {
+  const calculateExpression = (operator) => {
     setDisplayTotal(true);
-    if (operator === "" && currentAmount !== 0) {
-      console.log("here")
+    if (previousOperator === null) {
       setCurrentTotal(Number(currentAmount));
     }
-    if (operator === "add") {
+    if (previousOperator === "equals") {
+      if (currentTotal === 0) {
+        setCurrentTotal(Number(currentAmount));
+      }
+    }
+    if (previousOperator === "add") {
       setCurrentTotal(currentTotal + Number(currentAmount));
-    }
-    if (operator === "-") {
+    } else if (previousOperator === "minus") {
       setCurrentTotal(currentTotal - Number(currentAmount));
-    }
-    if (operator === "X") {
+    } else if (previousOperator === "multiply") {
       setCurrentTotal(currentTotal * Number(currentAmount));
-    }
-    if (operator === "÷") {
+    } else if (previousOperator === "divide") {
       setCurrentTotal(currentTotal / Number(currentAmount));
     }
-    if (operator === "√") {
+
+    if (previousOperator === "square") {
       setCurrentTotal(Math.sqrt(currentTotal));
     }
     setCurrentAmount(0);
-    setCurrentOperator("=");
-  }
+    setPreviousOperator(operator);
+    return currentTotal;
+  };
+
+  // You currently have to press equals or another operator to make this work
+  // I believe the original model does the immediate calculation once the button is pressed
+  const squareRoot = () => {
+    calculateExpression("square");
+  };
 
   const clickAllClearFunction = () => {
     setCurrentAmount(0);
     setCurrentTotal(0);
-    setCurrentOperator("");
+    setPreviousOperator("equals");
   };
 
   return (
@@ -138,7 +115,10 @@ function Keypad({
       <div style={{ gridArea: "model-no", marginLeft: "calc(100% / 6)" }}>
         <p>SL-300SV</p>
       </div>
-      <CasioButton onClick={clickOperatorFunction} style={{ gridArea: "sqrt" }}>
+      <CasioButton
+        onClick={() => squareRoot("square")}
+        style={{ gridArea: "sqrt" }}
+      >
         √
       </CasioButton>
       <CasioButton style={{ gridArea: "off" }}>OFF</CasioButton>
@@ -147,7 +127,7 @@ function Keypad({
       <CasioButton style={{ gridArea: "Mminus" }}>M-</CasioButton>
       <CasioButton style={{ gridArea: "Mplus" }}>M+</CasioButton>
       <CasioButton
-        onClick={clickOperatorFunction}
+        onClick={() => calculateExpression("divide")}
         style={{ gridArea: "divide" }}
       >
         ÷
@@ -163,7 +143,7 @@ function Keypad({
         9
       </CasioButton>
       <CasioButton
-        onClick={clickOperatorFunction}
+        onClick={() => calculateExpression("multiply")}
         style={{ gridArea: "multiply" }}
       >
         X
@@ -179,7 +159,7 @@ function Keypad({
         6
       </CasioButton>
       <CasioButton
-        onClick={clickOperatorFunction}
+        onClick={() => calculateExpression("minus")}
         style={{ gridArea: "minus" }}
       >
         -
@@ -209,7 +189,10 @@ function Keypad({
       <CasioButton onClick={clickEqualsFunction} style={{ gridArea: "equals" }}>
         =
       </CasioButton>
-      <CasioButton onClick={calculateExpression("add")} style={{ gridArea: "add" }}>
+      <CasioButton
+        onClick={() => calculateExpression("add")}
+        style={{ gridArea: "add" }}
+      >
         +
       </CasioButton>
     </KeypadContainer>

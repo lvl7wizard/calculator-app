@@ -28,7 +28,7 @@ function Calculator() {
   const [displayTotal, setDisplayTotal] = useState(false);
   const [currentTotal, setCurrentTotal] = useState(0);
   const [currentAmount, setCurrentAmount] = useState(0);
-  const [currentOperator, setCurrentOperator] = useState("");
+  const [previousOperator, setPreviousOperator] = useState(null);
   return (
     <>
       <StyledDiv>
@@ -52,8 +52,8 @@ function Calculator() {
             currentAmount={currentAmount}
             setCurrentTotal={setCurrentTotal}
             currentTotal={currentTotal}
-            setCurrentOperator={setCurrentOperator}
-            currentOperator={currentOperator}
+            setPreviousOperator={setPreviousOperator}
+            previousOperator={previousOperator}
           />
         </div>
       </StyledDiv>
@@ -61,7 +61,7 @@ function Calculator() {
       <h3>Troubleshooting: </h3>
       <p>currentTotal: {currentTotal}</p>
       <p>currentAmount: {currentAmount}</p>
-      <p>currentOperator: {currentOperator}</p>
+      <p>previousOperator: {previousOperator}</p>
       <p>displayTotal: {displayTotal ? "true" : "false"}</p>
       </div>
     </>
