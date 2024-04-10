@@ -20,7 +20,7 @@ box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.8), inset 0px 0px 4px 2px rgba(0, 0,
 const CalculatorText = styled.p`
 font-family: digital-clock-font;
 font-size: 4.4rem;
-color: #1a1a1a;
+color: rgba(26, 26, 26, 0.85);
 margin: 0px;
 `
 
