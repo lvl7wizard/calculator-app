@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 const KeypadContainer = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3d4047;
   display: grid;
+  font-size: 0.7rem;
+  font-weight: bold;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr) 0.1fr;
   grid-template-areas:
-    "model-no model-no model-no sqrt off"
+    "model-no model-no blank sqrt off"
     "MC MR Mminus Mplus divide"
     "percent seven eight nine multiply"
     "negate four five six minus"
     "clear one two three add"
     "allclear zero dot equals add";
+    "on . . . .";
 `;
 
 const CasioButton = styled.button`
@@ -20,12 +25,19 @@ const CasioButton = styled.button`
   border-radius: 4px 4px 15px 15px;
   background: #373a41;
   color: white;
+  font-size: 1.2rem;
 `;
 
-const OnLabel = styled.p`
-margin-top: -8px;
-margin-bottom: -7px;
-margin-left: 21.5px;
+const OnLabel = styled.label`
+text-align: center;
+margin-top: -4px;
+margin-bottom: -5px;
+`
+
+const ModelNoTextContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
 `
 
 function Keypad({
@@ -173,9 +185,10 @@ function Keypad({
 
   return (
     <KeypadContainer>
-      <div style={{ gridArea: "model-no", marginLeft: "calc(100% / 6)" }}>
+      <ModelNoTextContainer style={{ gridArea: "model-no"}}>
         <p>SL-300SV</p>
-      </div>
+      </ModelNoTextContainer>
+      <div style={{gridArea: "blank"}}></div>
       <CasioButton
         onClick={() => squareRoot("square")}
         style={{ gridArea: "sqrt" }}
@@ -256,7 +269,7 @@ function Keypad({
       >
         +
       </CasioButton>
-      <OnLabel>on</OnLabel>
+      <OnLabel>ON</OnLabel>
     </KeypadContainer>
   );
 }
