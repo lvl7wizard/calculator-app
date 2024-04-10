@@ -12,10 +12,11 @@ const StyledDiv = styled.div`
   border-left: 8px solid #BDBDBD;
   border-right: 10px solid #b6b6b7;
   border-radius: 5px 5px 20px 20px;
-  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow:0px 0px 100px rgba(255, 255, 255, 0.25);
   padding: 15px;
   display: grid;
   width: 280px;
+  height: 470px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
   grid-template-areas:
@@ -62,7 +63,7 @@ function Calculator() {
           />
         </div>
       </StyledDiv>
-      <div>
+      {/* <div>
       <h3>Troubleshooting</h3>
       <p>currentTotal: {currentTotal}</p>
       <p>currentAmount: {currentAmount}</p>
@@ -70,7 +71,7 @@ function Calculator() {
       <p>displayTotal: {displayTotal ? "true" : "false"}</p>
       <p>memory: {memory}</p>
       <p>power: {powerOn ? "on" : "off"}</p>
-      </div>
+      </div> */}
     </>
   );
 }
