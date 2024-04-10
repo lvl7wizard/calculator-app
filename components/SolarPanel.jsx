@@ -12,6 +12,7 @@ width: 100%;
 background-color: #2e1b0d;
 border: solid #666970 3px;
 border-radius: 5px;
+box-shadow: 0px 0px 1px 0.5px rgba(0, 0, 0, 0.8);
 `
 const SolarPanelText = styled.p`
 font-size: 0.5rem;
