@@ -26,7 +26,7 @@ margin: 0px;
 function Screen ({currentAmount, displayTotal, currentTotal, powerOn}) {
     return <Background>
         {powerOn ? 
-        <CalculatorText>{displayTotal ? currentTotal : currentAmount}</CalculatorText>
+        <CalculatorText>{displayTotal ? String(currentTotal).slice(0,8) : String(currentAmount).slice(0,8)}</CalculatorText>
         :
         null
     }
