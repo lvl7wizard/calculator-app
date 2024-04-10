@@ -22,12 +22,24 @@ const CasioButton = styled.button`
   margin: 4px;
   padding-top: 8px;
   padding-bottom: 8px;
-  border: solid black;
+  border: solid black 1px;
   border-radius: 5px 5px 17px 17px;
   background: #373a41;
   color: white;
   font-size: 1.2rem;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+`;
+
+const SmallCasioButton = styled.button`
+  margin: 4px;
+  height: 60%;
+  align-self: center;
+  border: solid black 1px;
+  border-radius: 5px 5px 17px 17px;
+  background: #373a41;
+  color: white;
+  font-size: 1rem;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
 `;
 
 const OnLabel = styled.label`
@@ -191,13 +203,13 @@ function Keypad({
         <p style={{fontSize:"12.5px"}}>SL-300SV</p>
       </ModelNoTextContainer>
       <div style={{gridArea: "blank"}}></div>
-      <CasioButton
+      <SmallCasioButton
         onClick={() => squareRoot("square")}
         style={{ gridArea: "sqrt" }}
       >
         √
-      </CasioButton>
-      <CasioButton onClick={() => powerButton(false)} style={{ gridArea: "off" }}>OFF</CasioButton>
+      </SmallCasioButton>
+      <SmallCasioButton onClick={() => powerButton(false)} style={{ gridArea: "off" }}>OFF</SmallCasioButton>
       <CasioButton onClick={() => memoryFunctions("clear")} style={{ gridArea: "MC" }}>MC</CasioButton>
       <CasioButton onClick={() => memoryFunctions("recall")} style={{ gridArea: "MR" }}>MR</CasioButton>
       <CasioButton onClick={() => memoryFunctions("minus")} style={{ gridArea: "Mminus" }}>M-</CasioButton>
