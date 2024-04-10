@@ -15,9 +15,9 @@ border-radius: 5px;
 box-shadow: 0px 0px 1px 0.5px rgba(0, 0, 0, 0.8);
 `
 const SolarPanelText = styled.p`
-font-size: 0.5rem;
+font-size: 0.6rem;
 font-weight: bold;
-font-family: Arial, Helvetica, sans-serif;
+font-family: casio-logo;
 color: #3d4047;
 margin: 5px;
 `
