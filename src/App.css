@@ -7,3 +7,7 @@ body {
     font-family:'digital-clock-font';
     src: url('./assets/digital-7.mono.ttf');
    }
+   @font-face{
+    font-family:'casio-logo';
+    src: url('./assets/eurostile.TTF');
+   }
