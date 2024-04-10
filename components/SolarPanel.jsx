@@ -16,6 +16,8 @@ border-radius: 5px;
 const SolarPanelText = styled.p`
 font-size: 7.5px;
 font-weight: bold;
+font-family: Arial, Helvetica, sans-serif;
+margin: 5px;
 `
 
 function SolarPanel () {

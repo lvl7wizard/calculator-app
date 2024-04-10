@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Background = styled.div`
+height: 55.5px;
 display: flex;
 background-color: #d6e2e2;
 justify-content: end;
@@ -18,9 +19,13 @@ font-size: 50px;
 margin: 0px;
 `
 
-function Screen ({currentAmount, displayTotal, currentTotal}) {
+function Screen ({currentAmount, displayTotal, currentTotal, powerOn}) {
     return <Background>
+        {powerOn ? 
         <CalculatorText>{displayTotal ? currentTotal : currentAmount}</CalculatorText>
+        :
+        null
+    }
     </Background>
 }
 
