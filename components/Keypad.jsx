@@ -28,6 +28,8 @@ const CasioButton = styled.button`
   color: #FAF9F6;
   font-size: 1.2rem;
   box-shadow: 0.5px 0.5px 2px 0px rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 
   &:hover{
     cursor: pointer;
@@ -49,6 +51,8 @@ const SmallCasioButton = styled.button`
   color: white;
   font-size: 1rem;
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
   &:hover{
     cursor: pointer;
   }
