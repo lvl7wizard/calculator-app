@@ -18,10 +18,10 @@ box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.8);
 `
 
 const CalculatorText = styled.p`
-font-family: Courier New;
-font-size: 52px;
+font-family: digital-clock-font;
+font-size: 4.4rem;
+color: #1a1a1a;
 margin: 0px;
-margin-right: 2.5px;
 `
 
 function Screen ({currentAmount, displayTotal, currentTotal, powerOn}) {
