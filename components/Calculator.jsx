@@ -29,12 +29,12 @@ function Calculator() {
   const [currentTotal, setCurrentTotal] = useState(0);
   const [currentAmount, setCurrentAmount] = useState(0);
   const [previousOperator, setPreviousOperator] = useState(null);
+  const [memory, setMemory] = useState(0);
+  const [powerOn, setPowerOn] = useState(true);
   return (
     <>
       <StyledDiv>
-        <div style={{ gridArea: "logo" }}>
-          <Logo />
-        </div>
+          <Logo style={{gridArea: "logo"}}/>
         <div style={{ gridArea: "solar-panel" }}>
           <SolarPanel />
         </div>
@@ -43,26 +43,33 @@ function Calculator() {
             displayTotal={displayTotal}
             currentAmount={currentAmount}
             currentTotal={currentTotal}
+            powerOn={powerOn}
           />
         </div>
         <div style={{ gridArea: "keypad" }}>
           <Keypad
             setDisplayTotal={setDisplayTotal}
+            displayTotal={displayTotal}
             setCurrentAmount={setCurrentAmount}
             currentAmount={currentAmount}
             setCurrentTotal={setCurrentTotal}
             currentTotal={currentTotal}
             setPreviousOperator={setPreviousOperator}
             previousOperator={previousOperator}
+            setMemory={setMemory}
+            memory={memory}
+            setPowerOn={setPowerOn}
           />
         </div>
       </StyledDiv>
       <div>
-      <h3>Troubleshooting: </h3>
+      <h3>Troubleshooting</h3>
       <p>currentTotal: {currentTotal}</p>
       <p>currentAmount: {currentAmount}</p>
       <p>previousOperator: {previousOperator}</p>
       <p>displayTotal: {displayTotal ? "true" : "false"}</p>
+      <p>memory: {memory}</p>
+      <p>power: {powerOn ? "on" : "off"}</p>
       </div>
     </>
   );

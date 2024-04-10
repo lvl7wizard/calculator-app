@@ -22,15 +22,26 @@ const CasioButton = styled.button`
   color: white;
 `;
 
+const OnLabel = styled.p`
+margin-top: -8px;
+margin-bottom: -7px;
+margin-left: 21.5px;
+`
+
 function Keypad({
   setDisplayTotal,
+  displayTotal,
   setCurrentAmount,
   currentAmount,
   setCurrentTotal,
   currentTotal,
   setPreviousOperator,
   previousOperator,
+  setMemory,
+  memory,
+  setPowerOn
 }) {
+
   const clickNumber = (event) => {
     if (previousOperator === "equals") {
       setCurrentTotal(0);
@@ -40,8 +51,11 @@ function Keypad({
     setCurrentAmount((currentAmount) => {
       if (currentAmount === 0 && number !== ".") {
         return number;
-      } else {
-        return currentAmount + number;
+      } else if (Number(currentAmount) === 0 && Number(number) === 0) {
+        return 0
+      }
+      else {
+        return currentAmount.slice(0) === "0" ? currentAmount.slice(1) + number : currentAmount + number;
       }
     });
   };
@@ -131,10 +145,31 @@ function Keypad({
   }
 
   const clickAllClearFunction = () => {
+    setPowerOn(true);
     setCurrentAmount(0);
     setCurrentTotal(0);
     setPreviousOperator("equals");
   };
+
+  const memoryFunctions = (command) => {
+    if (command === "add") {
+      displayTotal ? setMemory(memory + Number(currentTotal)) : setMemory(memory + Number(currentAmount))
+    }
+    if (command === "minus") {
+      displayTotal ? setMemory(memory - Number(currentTotal)) : setMemory(memory - Number(currentAmount))
+    }
+    if (command === "recall") {
+      setCurrentAmount(memory)
+      setDisplayTotal(false)
+    }
+    if (command === "clear") {
+      setMemory(0)
+    }
+  }
+
+  const powerButton = (power) => {
+    power === true ? setPowerOn(true) : setPowerOn(false)
+  }
 
   return (
     <KeypadContainer>
@@ -147,11 +182,11 @@ function Keypad({
       >
         √
       </CasioButton>
-      <CasioButton style={{ gridArea: "off" }}>OFF</CasioButton>
-      <CasioButton style={{ gridArea: "MC" }}>MC</CasioButton>
-      <CasioButton style={{ gridArea: "MR" }}>MR</CasioButton>
-      <CasioButton style={{ gridArea: "Mminus" }}>M-</CasioButton>
-      <CasioButton style={{ gridArea: "Mplus" }}>M+</CasioButton>
+      <CasioButton onClick={() => powerButton(false)} style={{ gridArea: "off" }}>OFF</CasioButton>
+      <CasioButton onClick={() => memoryFunctions("clear")} style={{ gridArea: "MC" }}>MC</CasioButton>
+      <CasioButton onClick={() => memoryFunctions("recall")} style={{ gridArea: "MR" }}>MR</CasioButton>
+      <CasioButton onClick={() => memoryFunctions("minus")} style={{ gridArea: "Mminus" }}>M-</CasioButton>
+      <CasioButton onClick={() => memoryFunctions("add")}style={{ gridArea: "Mplus" }}>M+</CasioButton>
       <CasioButton
         onClick={() => calculateExpression("divide")}
         style={{ gridArea: "divide" }}
@@ -221,6 +256,7 @@ function Keypad({
       >
         +
       </CasioButton>
+      <OnLabel>on</OnLabel>
     </KeypadContainer>
   );
 }
