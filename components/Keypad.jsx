@@ -28,11 +28,20 @@ const CasioButton = styled.button`
   color: #FAF9F6;
   font-size: 1.2rem;
   box-shadow: 0.5px 0.5px 2px 0px rgba(0, 0, 0, 0.5);
+
+  &:hover{
+    cursor: pointer;
+  }
+  &:active {
+    box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    font-size: 1.15rem;
+  }
+  }
 `;
 
 const SmallCasioButton = styled.button`
-  margin: 4px;
   height: 60%;
+  margin: 4px;
   align-self: center;
   border: solid black 1px;
   border-radius: 5px 5px 17px 17px;
@@ -40,6 +49,14 @@ const SmallCasioButton = styled.button`
   color: white;
   font-size: 1rem;
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  &:hover{
+    cursor: pointer;
+  }
+  &:active {
+    box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    font-size: 0.95rem;
+  }
+  }
 `;
 
 const OnLabel = styled.label`
