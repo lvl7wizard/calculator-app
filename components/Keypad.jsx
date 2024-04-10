@@ -38,8 +38,8 @@ function Keypad({
     setDisplayTotal(false);
     const number = event.target.innerText;
     setCurrentAmount((currentAmount) => {
-      if (currentAmount === 0) {
-        return Number(number);
+      if (currentAmount === 0 && number !== ".") {
+        return number;
       } else {
         return currentAmount + number;
       }
@@ -66,6 +66,9 @@ function Keypad({
     if (previousOperator === "square") {
       setCurrentTotal(Math.sqrt(currentTotal));
     }
+    if (previousOperator === "percent") {
+      setCurrentTotal(currentTotal / 100 * currentAmount);
+    }
     setCurrentAmount(0);
     setPreviousOperator("equals");
   };
@@ -88,6 +91,8 @@ function Keypad({
       setCurrentTotal(currentTotal * Number(currentAmount));
     } else if (previousOperator === "divide") {
       setCurrentTotal(currentTotal / Number(currentAmount));
+    } else if (previousOperator === "percent") {
+      setCurrentTotal(currentTotal / 100 * currentAmount);
     }
 
     if (previousOperator === "square") {
@@ -97,6 +102,16 @@ function Keypad({
     setPreviousOperator(operator);
     return currentTotal;
   };
+
+  const negate = () => {
+    let value = currentAmount;
+    if (value.charAt(0) === "-") {
+      value = value.slice(1);
+    } else {
+      value = '-' + value;
+    }
+    setCurrentAmount(value);
+  }
 
   // You currently have to press equals or another operator to make this work
   // I believe the original model does the immediate calculation once the button is pressed
@@ -143,7 +158,7 @@ function Keypad({
       >
         ÷
       </CasioButton>
-      <CasioButton style={{ gridArea: "percent" }}>%</CasioButton>
+      <CasioButton onClick={() => calculateExpression("percent")} style={{ gridArea: "percent" }}>%</CasioButton>
       <CasioButton onClick={clickNumber} style={{ gridArea: "seven" }}>
         7
       </CasioButton>
@@ -159,7 +174,7 @@ function Keypad({
       >
         X
       </CasioButton>
-      <CasioButton style={{ gridArea: "negate" }}>+/-</CasioButton>
+      <CasioButton onClick={negate} style={{ gridArea: "negate" }}>+/-</CasioButton>
       <CasioButton onClick={clickNumber} style={{ gridArea: "four" }}>
         4
       </CasioButton>
@@ -196,7 +211,7 @@ function Keypad({
       <CasioButton onClick={clickNumber} style={{ gridArea: "zero" }}>
         0
       </CasioButton>
-      <CasioButton style={{ gridArea: "dot" }}>.</CasioButton>
+      <CasioButton onClick={clickNumber} style={{ gridArea: "dot" }}>.</CasioButton>
       <CasioButton onClick={clickEqualsFunction} style={{ gridArea: "equals" }}>
         =
       </CasioButton>
