@@ -7,11 +7,11 @@ import styled from "styled-components";
 
 const StyledDiv = styled.div`
   background-color: #d3d2d8;
-  border-top: 5px solid #b6b6b7;
-  border-bottom: 10px solid #b6b6b7;
-  border-left: 8px solid #b6b6b7;
-  border-right: 8px solid #b6b6b7;
-  border-radius: 4px 4px 15px 15px;
+  border-top: 5px solid #E0E0E0;
+  border-bottom: 10px solid #9E9E9E;
+  border-left: 8px solid #BDBDBD;
+  border-right: 10px solid #b6b6b7;
+  border-radius: 5px 5px 20px 20px;
   box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.3);
   padding: 15px;
   display: grid;
