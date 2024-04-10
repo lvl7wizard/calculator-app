@@ -19,18 +19,20 @@ const KeypadContainer = styled.div`
 `;
 
 const CasioButton = styled.button`
-  margin: 5px;
-  padding: 5px;
+  margin: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   border: solid black;
-  border-radius: 4px 4px 15px 15px;
+  border-radius: 5px 5px 17px 17px;
   background: #373a41;
   color: white;
   font-size: 1.2rem;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 `;
 
 const OnLabel = styled.label`
 text-align: center;
-margin-top: -4px;
+margin-top: -2px;
 margin-bottom: -5px;
 `
 
@@ -186,7 +188,7 @@ function Keypad({
   return (
     <KeypadContainer>
       <ModelNoTextContainer style={{ gridArea: "model-no"}}>
-        <p>SL-300SV</p>
+        <p style={{fontSize:"12.5px"}}>SL-300SV</p>
       </ModelNoTextContainer>
       <div style={{gridArea: "blank"}}></div>
       <CasioButton
