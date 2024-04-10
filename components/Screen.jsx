@@ -14,7 +14,7 @@ border-left: solid 15px #666970;
 border-right: solid 15px #666970;
 margin-left: -13px;
 margin-right: -13px;
-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.8);
+box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.8), inset 0px 0px 4px 2px rgba(0, 0, 0, 0.8);
 `
 
 const CalculatorText = styled.p`
