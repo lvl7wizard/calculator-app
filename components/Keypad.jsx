@@ -185,10 +185,14 @@ function Keypad({
   // Need to research whether it should clear all digits from currentAmount in one go
   // Also whether it can clear the currentTotal if currentAmount is 0
   const clearLast = () => {
-    if (currentAmount.length > 1) {
-      setCurrentAmount(currentAmount.slice(0,-1))
+    if (!displayTotal) {
+      if (currentAmount.length > 1) {
+        setCurrentAmount(currentAmount.slice(0,-1))
+      } else {
+        setCurrentAmount(0);
+      }
     } else {
-      setCurrentAmount(0);
+      setCurrentTotal(0);
     }
   }
 
