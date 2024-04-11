@@ -19,7 +19,7 @@ const KeypadContainer = styled.div`
 `;
 
 const CasioButton = styled.button`
-  margin: 4px;
+  margin: 3px;
   padding-top: 8px;
   padding-bottom: 8px;
   border: solid black 1px;

@@ -15,7 +15,7 @@ const StyledDiv = styled.div`
   box-shadow:0px 0px 100px rgba(255, 255, 255, 0.25);
   padding: 15px;
   display: grid;
-  width: 280px;
+  width: 270px;
   height: 470px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
