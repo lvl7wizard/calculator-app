@@ -101,7 +101,7 @@ function Keypad({
       } else if (Number(currentAmount) === 0 && Number(number) === 0) {
         return 0
       } else if (Number(currentAmount) === 0 && number === ".") {
-          return "0.1"
+          return "0."
         } else {
         return currentAmount.slice(0) === "0" ? currentAmount.slice(1) + number : currentAmount + number;
       }
