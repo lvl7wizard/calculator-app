@@ -100,8 +100,9 @@ function Keypad({
         return number;
       } else if (Number(currentAmount) === 0 && Number(number) === 0) {
         return 0
-      }
-      else {
+      } else if (Number(currentAmount) === 0 && number === ".") {
+          return "0.1"
+        } else {
         return currentAmount.slice(0) === "0" ? currentAmount.slice(1) + number : currentAmount + number;
       }
     });
