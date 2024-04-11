@@ -22,7 +22,8 @@ const CalculatorText = styled.p`
   font-family: digital-clock-font;
   font-size: 4.4rem;
   color: rgba(26, 26, 26, 0.85);
-  margin: 0px;
+  margin: -0px;
+  margin-right: -5px
 `;
 
 function Screen({ currentAmount, displayTotal, currentTotal, powerOn }) {
