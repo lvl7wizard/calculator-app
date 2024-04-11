@@ -11,3 +11,9 @@ body {
     font-family:'casio-logo';
     src: url('./assets/eurostile.TTF');
    }
+
+   @media (min-width: 350px) { 
+    body {
+      overflow-y: scroll;
+    }
+  }
