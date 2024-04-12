@@ -20,10 +20,10 @@ const Background = styled.div`
 
 const CalculatorText = styled.p`
   font-family: digital-clock-font;
-  font-size: 4.4rem;
+  font-size: 4rem;
   color: rgba(26, 26, 26, 0.85);
   margin: -0px;
-  margin-right: -5px
+  margin-right: 1px
 `;
 
 function Screen({ currentAmount, displayTotal, currentTotal, powerOn }) {

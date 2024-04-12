@@ -14,8 +14,10 @@ const StyledDiv = styled.div`
   border-radius: 5px 5px 20px 20px;
   box-shadow:0px 0px 100px rgba(255, 255, 255, 0.25);
   padding: 15px;
+  padding-bottom: 5px;
   display: grid;
-  min-width: 270px;
+  min-width: 260px;
+  // max-width: 240px;
   height: 470px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
