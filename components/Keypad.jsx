@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const KeypadContainer = styled.div`
   font-family: Arial, Helvetica, sans-serif;
@@ -7,7 +8,7 @@ const KeypadContainer = styled.div`
   font-size: 0.7rem;
   font-weight: bold;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 1fr) 0.1fr;
+  grid-template-rows: repeat(6, 45px) auto;
   grid-template-areas:
     "model-no model-no blank sqrt off"
     "MC MR Mminus Mplus divide"
@@ -20,14 +21,16 @@ const KeypadContainer = styled.div`
 
 const CasioButton = styled.button`
   margin: 3px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border: solid black 1px;
-  border-radius: 5px 5px 17px 17px;
   background: #373a41;
   color: #FAF9F6;
-  font-size: 18px;
-  box-shadow: 0.5px 0.5px 2px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 7px 7px 17px 17px;
+  border: solid black 0.5px;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 17px;
+
+  // stops elements from being highlighted blue on touch touchscreen devices
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 
@@ -35,44 +38,31 @@ const CasioButton = styled.button`
     cursor: pointer;
   }
   &:active {
-    box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
-    font-size: 17px;
-  }
+    box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+    font-size: 16.5px;
   }
 `;
 
-const SmallCasioButton = styled.button`
-  height: 60%;
-  margin: 4px;
-  align-self: center;
-  border: solid black 1px;
-  border-radius: 5px 5px 17px 17px;
-  background: #373a41;
-  color: white;
-  font-size: 14px;
-  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  &:hover{
-    cursor: pointer;
-  }
-  &:active {
-    box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
-    font-size: 13px;
-  }
-  }
+const SmallCasioButton = styled(CasioButton)`
+margin: 7px;
+font-size: 13px;
+&:active {
+  font-size: 12.5px;
+}
 `;
 
 const OnLabel = styled.label`
 text-align: center;
-margin-top: -2px;
-margin-bottom: -5px;
+margin-bottom: -7px;
+margin-top: -1px;
+font-family: casio-logo;
 `
 
 const ModelNoTextContainer = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
+font-family: casio-logo;
 `
 
 function Keypad({
@@ -84,11 +74,9 @@ function Keypad({
   currentTotal,
   setPreviousOperator,
   previousOperator,
-  setMemory,
-  memory,
   setPowerOn
 }) {
-
+  const [memory, setMemory] = useState(0);
   const clickNumber = (event) => {
     if (previousOperator === "equals") {
       setCurrentTotal(0);
