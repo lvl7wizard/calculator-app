@@ -26,7 +26,7 @@ const CasioButton = styled.button`
   border-radius: 5px 5px 17px 17px;
   background: #373a41;
   color: #FAF9F6;
-  font-size: 1.2rem;
+  font-size: 18px;
   box-shadow: 0.5px 0.5px 2px 0px rgba(0, 0, 0, 0.5);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
@@ -36,7 +36,7 @@ const CasioButton = styled.button`
   }
   &:active {
     box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
-    font-size: 1.15rem;
+    font-size: 17px;
   }
   }
 `;
@@ -49,7 +49,7 @@ const SmallCasioButton = styled.button`
   border-radius: 5px 5px 17px 17px;
   background: #373a41;
   color: white;
-  font-size: 1rem;
+  font-size: 14px;
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
@@ -58,7 +58,7 @@ const SmallCasioButton = styled.button`
   }
   &:active {
     box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
-    font-size: 0.95rem;
+    font-size: 13px;
   }
   }
 `;

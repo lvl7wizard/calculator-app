@@ -7,7 +7,7 @@ align-items: center;
 `
 
 const SolarPanelScreen = styled.div`
-height: 40px;
+height: 35px;
 width: 100%;
 background-color: #2e1b0d;
 border: solid #666970 3px;
