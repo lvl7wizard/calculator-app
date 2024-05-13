@@ -1,29 +1,25 @@
 import styled from "styled-components";
 
 const Background = styled.div`
-  height: 55.5px;
+  height: 90px;
   display: flex;
   background-color: #d6e2e2;
   justify-content: end;
-  padding: 10px;
-  color: black;
-  border: solid #666970 15px;
-  border-bottom: 1.5rem solid #666970;
+  align-items: center;
+  border-color: #666970;
+  border-style: solid;
+  border-width: 15px 15px 25px 15px;
   border-radius: 10px 10px 25px 25px;
-  border-left: solid 15px #666970;
-  border-right: solid 15px #666970;
-  margin-left: -13px;
-  margin-right: -13px;
   box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.8),
     inset 0px 0px 4px 2px rgba(0, 0, 0, 0.8);
 `;
 
 const CalculatorText = styled.p`
   font-family: digital-clock-font;
-  font-size: 4rem;
+  font-size: 62.5px;
   color: rgba(26, 26, 26, 0.85);
-  margin: -0px;
-  margin-right: 1px
+  padding-top: 6.5px; // padding-top added for vertical centering as the font has blank pixels under each chararcter
+  margin-right: 8px; // margin-right added so text looks even when 8 digits inputted
 `;
 
 function Screen({ currentAmount, displayTotal, currentTotal, powerOn }) {

@@ -8,7 +8,6 @@ align-items: center;
 
 const SolarPanelScreen = styled.div`
 height: 35px;
-width: 100%;
 background-color: #2e1b0d;
 border: solid #666970 3px;
 border-radius: 5px;
@@ -24,10 +23,10 @@ margin: 5px;
 
 function SolarPanel () {
     return (
-    <Container>
+    // <Container>
     <SolarPanelScreen/>
-    <SolarPanelText>TWO WAY POWER</SolarPanelText>
-    </Container>
+    // {/* <SolarPanelText>TWO WAY POWER</SolarPanelText> */}
+    // </Container>
     )
 }
 
