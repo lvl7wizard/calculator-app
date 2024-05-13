@@ -7,6 +7,7 @@ const KeypadContainer = styled.div`
   display: grid;
   font-size: 0.7rem;
   font-weight: bold;
+  max-width: 250px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(6, 45px) auto;
   grid-template-areas:
@@ -27,7 +28,6 @@ const CasioButton = styled.button`
   border: solid black 0.5px;
   box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.3);
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 100;
   font-size: 17px;
 
   // stops elements from being highlighted blue on touch touchscreen devices
@@ -53,8 +53,7 @@ font-size: 13px;
 
 const OnLabel = styled.label`
 text-align: center;
-margin-bottom: -7px;
-margin-top: -1px;
+margin-bottom: -5px;
 font-family: casio-logo;
 `
 
