@@ -1,7 +1,8 @@
 # Casio SL-300SV
 
-Welcome to my Casio SL-300SV calculator replica. 
-I initially created this project as a way of exploring the capabilities of CSS Grid for designs. I have since added basic functionalities for all buttons.
+Welcome to my Casio SL-300SV calculator replica created using JavaScript and React. 
+I created this project as a way of exploring the capabilities of CSS Grid for creating layouts and to practice working from pre-existing designs.
+I have added basic functionalities for all buttons.
 
 ## Live Demo
 
