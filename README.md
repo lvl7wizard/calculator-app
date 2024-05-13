@@ -1,12 +1,12 @@
 # Casio SL-300SV
 
-Welcome to my Casio SL-300SV calculator replica created using JavaScript and React. 
+Welcome to my Casio SL-300SV calculator replica, this app was created using JavaScript and React. 
 I created this project as a way of exploring the capabilities of CSS Grid for creating layouts and to practice working from pre-existing designs.
 I have added basic functionalities for all buttons.
 
 ## Live Demo
 
-Live version avaliable here [here](https://casio-sl-300sv.netlify.app/). Don't forget to press the 'ON' button!
+A live version of the project is avaliable here [here](https://casio-sl-300sv.netlify.app/).
 
 ## Development
 If you want to run the project locally or contribute to its development, follow these steps:
