@@ -7,7 +7,7 @@ const KeypadContainer = styled.div`
   display: grid;
   font-size: 0.7rem;
   font-weight: bold;
-  max-width: 250px;
+  // max-width: 250px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(6, 45px) auto;
   grid-template-areas:

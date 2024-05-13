@@ -5,7 +5,7 @@ import SolarPanel from "./SolarPanel";
 import styled from "styled-components";
 
 const CalculatorCasing = styled.div`
-  display: block;
+  display: grid;
   min-width: 275px;
   max-width: 275px;
   padding: 10px;
@@ -27,7 +27,7 @@ const LogoAndSolarContainer = styled.div`
   grid-template-rows: 1fr auto;
   grid-template-areas:
     "logo solarPanel"
-    ". label";
+    "blank label";
 `;
 
 const LogoText = styled.p`
@@ -66,7 +66,7 @@ function Calculator() {
           <SolarLabelText>TWO WAY POWER</SolarLabelText>
         </LogoAndSolarContainer>
 
-        <div style={{ gridArea: "screen" }}>
+        <div>
           <Screen
             displayTotal={displayTotal}
             currentAmount={currentAmount}
@@ -74,7 +74,7 @@ function Calculator() {
             powerOn={powerOn}
           />
         </div>
-        <div style={{ gridArea: "keypad" }}>
+        <div>
           <Keypad
             setDisplayTotal={setDisplayTotal}
             displayTotal={displayTotal}
