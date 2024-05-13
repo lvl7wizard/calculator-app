@@ -2,7 +2,7 @@
 
 This is the project source code for my CASIO SL-300SV calculator replica, the app was created using JavaScript and React. 
 I created this project as a way of exploring the capabilities of CSS Grid for creating layouts and to practice working from pre-existing designs.
-I have added basic functionalities for all buttons.
+I have since added basic functionalities for all buttons.
 
 ## Live Demo
 
